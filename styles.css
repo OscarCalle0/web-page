@@ -9,7 +9,7 @@ body {
 
 .welcome {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .welcome h1 {
@@ -25,11 +25,11 @@ body {
 /* Animación de Santa y sus renos */
 .santa-container {
     position: absolute;
-    top: 20%;
+    top: -200px; /* Fuera de la pantalla inicialmente */
     left: -300px;
     display: flex;
     align-items: center;
-    animation: santaFly 10s linear infinite;
+    z-index: 2;
 }
 
 .sleigh img {
@@ -53,6 +53,15 @@ body {
     z-index: 1;
 }
 
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
 /* Animaciones */
 @keyframes fadeIn {
     from {
@@ -63,27 +72,13 @@ body {
     }
 }
 
-@keyframes santaFly {
-    0% {
-        transform: translateX(-300px);
-    }
-    100% {
-        transform: translateX(110vw);
-    }
-}
-
-/* Para la nieve */
-.snowflake {
-    position: absolute;
-    top: -10px;
-    background-color: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: fall linear infinite;
-}
-
 @keyframes fall {
     to {
         transform: translateY(100vh);
     }
+}
+
+/* Clase para voltear las imágenes */
+.flip-horizontal {
+    transform: scaleX(-1); /* Invierte la imagen horizontalmente */
 }
